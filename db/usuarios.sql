@@ -40,7 +40,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre_completo`, `correo`, `usuario`, `contrasena`) VALUES
-(1, 'jordan meza', 'jordan0968300@gmail.com', 'jillder', 'ec99fabe09fae735b84b66ae063c948adeeb2f393dd97d8894c9af18b980e26c4379a476c6777000a2f44210d4899307ae40867c55336b761030d01a0ac52659');
+(1, 'jillder blackwood', 'jillder@gmail.com', 'jillder', 'ec99fabe09fae735b84b66ae063c948adeeb2f393dd97d8894c9af18b980e26c4379a476c6777000a2f44210d4899307ae40867c55336b761030d01a0ac52659');
 
 --
 -- Índices para tablas volcadas
