@@ -1,0 +1,64 @@
+/*estilo botones */
+*{
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+#botones{
+    position: absolute;
+    top: 4%;
+    right: 4%;
+}
+#ir_a_menu{
+    font-size: 75%;
+    padding: 2% 40px;
+    cursor: pointer;
+    background-color: gray;
+    border: none;
+    color: antiquewhite;
+    border-radius: 2px;
+    
+}
+#ir_a_nosotros{
+    font-size: 75%;
+    padding: 2% 40px;
+    cursor: pointer;
+    background-color: gray;
+    border: none;
+    color: antiquewhite;
+    border-radius: 2px;
+    
+}
+#ir_a_login{
+    font-size: 75%;
+    padding: 2% 40px;
+    cursor: pointer;
+    background-color: gray;
+    border: none;
+    color: antiquewhite;
+    border-radius: 2px;
+    
+}
+#ir_a_reservas{
+    font-size: 75%;
+    padding: 2% 40px;
+    cursor: pointer;
+    background-color: gray;
+    border: none;
+    color: antiquewhite;
+    border-radius: 2px;
+    
+}
+#la_cabrera{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 250%;
+    font-weight: bolder;
+    color: #d0816f;
+    position: absolute;
+    top: 2%;
+    margin-left: 3%;
+    border: black;
+    cursor: pointer;
+    background: none;
+}

@@ -1,0 +1,11 @@
+{
+  "name": "web_proyectoxd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "http server -p 2603"
+  },
+  "author": "Jillder",
+  "license": "ISC"
+}

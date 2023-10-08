@@ -1,0 +1,295 @@
+.grid_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20%;
+}
+
+#titulo_menu{
+    color: white;
+    font-size: 300%;
+    font-weight: bold;
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    margin-left: 4%;
+    margin-top: 8%;
+    position: absolute;
+}
+#top_menu{
+    width: 101%;
+    margin-top: -15%;
+    margin-left: -0.5%;
+}
+
+
+/*nombres entradas*/
+#entradas{
+    color: white;
+    font-size: 250%;
+    margin-top: 16%;
+    margin-left: 43%;
+    position: absolute;
+}
+#nombres_entradas{
+    color: white;
+    border: 5px solid white;
+    padding: 1%;
+    padding-left: 3.4%;
+    margin-left: 5%;
+    margin-right: 3.8%;
+    border-width: 0px 0px 5px 0px;
+}
+.nombres_e {
+    float: left;
+    width: 25%;
+    box-sizing: border-box;
+    font-size: 120%;
+    padding: 0.5%;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/*nombre guarniciones*/
+#guarniciones{
+    color: white;
+    text-align: center;
+    font-size: 250%;
+    margin-top: 5%;
+}
+#nombres_guarniciones{
+    color: white;
+    border: 5px solid white;
+    padding: 1%;
+    padding-left: 5%;
+    margin-left: 5%;
+    margin-right: 3%;
+    border-width: 0px 0px 5px 0px;
+}
+.nombres_g {
+    float: left;
+    width: 25%;
+    box-sizing: border-box;
+    font-size: 120%;
+    padding: 2px;
+}
+
+/*nombres pastas caseras*/
+#pastas{
+    color:white;
+    text-align: center;
+    font-size: 250%;
+    margin-top: 5%;    
+}
+#nombres_pastas{
+    color: white;
+    border: 5px solid white;
+    padding: 1%;
+    padding-left: 32%;
+    margin-left: 5%;
+    margin-right: 3%;
+    border-width: 0px 0px 5px 0px;
+}
+.nombres_p {
+    float: left;
+    width: 25%;
+    box-sizing: border-box;
+    font-size: 120%;
+    padding: 2px;
+    margin-left: -2%;
+    margin-right: 10%;
+}
+
+/*nombres grillados*/
+#grillados{
+    color: white;
+    text-align: center;
+    font-size: 250%;
+    margin-top: 5%;
+}
+#nombres_grillados{
+    color: white;
+    border: 5px solid white;
+    padding: 1%;
+    padding-left: 5%;
+    margin-left: 5%;
+    margin-right: 3%;
+    border-width: 0px 0px 5px 0px;
+}
+.nombres_gri {
+    float: left;
+    width: 25%;
+    box-sizing: border-box;
+    font-size: 120%;
+    padding: 2px;
+}
+
+/*nombres postres*/
+#postres{
+    color: white;
+    text-align: center;
+    font-size: 250%;
+    margin-top: 5%;
+}
+#nombres_postres{
+    color: white;
+    border: 5px solid white;
+    padding: 1%;
+    padding-left: 5%;
+    margin-left: 5%;
+    margin-right: 3%;
+    border-width: 0px 0px 5px 0px;
+}
+.nombres_pos {
+    float: left;
+    width: 25%;
+    box-sizing: border-box;
+    font-size: 120%;
+    padding: 2px;
+}
+
+
+
+/*imgs entradas*/
+#chori_criollo_img{
+    margin-left: 8%;
+    margin-top: 5%;
+    width: 20%;
+}
+#provoleta_img{
+    margin-top: 8%;
+    width: 20%;
+}
+#morcilla_img{
+    margin-top: 5%;
+    width: 20%;
+}
+#empanadas_img{
+    margin-top: 5%;
+    width: 19.4%;
+}
+
+
+/*imgs guarniciones*/
+#aguacate_img{
+    margin-left: 8%;
+    margin-top: 3%;
+    width: 20%;
+}
+#caesar_img{
+    margin-top: 3%;
+    width: 20%;
+}
+#caprese_img{
+    margin-top: 3%;
+    width: 20%;
+}
+#rucula_img{
+    margin-top: 3%;
+    width: 19.7%;
+}
+#mixta_img{
+    margin-left: 8%;
+    margin-top: 3%;
+    width: 19.8%;
+}
+#huevos_plancha_img{
+    margin-top: 3%;
+    width: 20%;
+}
+#papas_huevos_img{
+    margin-top: 3%;
+    width: 20%;
+}
+#papas_cebollas_img{
+    margin-top: 3%;
+    width: 19.7%;
+}
+
+
+/*imgs pastas*/
+#fussilli_img{
+    margin-left: 30%;
+    margin-top: 3%;
+    width: 20%;
+}
+#ravioles_img{
+    margin-top: 3%;
+    width: 20%;
+}
+
+
+/*imgs grillados*/
+#bife_aged_img{
+    margin-left: 8%;
+    margin-top: 3%;
+    width: 20.1%;
+}
+#bife_chorizo_img{
+    margin-top: 3%;
+    width: 20%;
+}
+#asado_novillo_img{
+    margin-top: 3%;
+    width: 20%;
+}
+#brochette_lomo_img{
+    margin-top: 3%;
+    width: 20.1%;
+}
+#lomo_marinada_img{
+    margin-left: 8%;
+    margin-top: 3%;
+    width: 20%;
+}
+#ojo_bife_img{
+    margin-top: 3%;
+    width: 20%;
+}
+#mollejas_img{
+    margin-top: 3%;
+    width: 20.25%;
+}
+#entraña_img{
+    margin-top: 3%;
+    width: 19.99%;
+}
+#churrasquito_img{
+    margin-left: 8%;
+    margin-top: 3%;
+    width: 20%;
+}
+#matambrito_img{
+    margin-top: 3%;
+    width: 20%;
+}
+#bondiola_img{
+    margin-top: 3%;
+    width: 20%;
+}
+#pamplona_img{
+    margin-top: 3%;
+    width: 20.1%;
+}
+
+/*imgs postres*/
+#helados_img{
+    margin-left: 8%;
+    margin-top: 3%;
+    width: 20.1%;
+}
+#variados_img{
+    margin-top: 3%;
+    width: 20%;
+}
+#brulee_img{
+    margin-top: 3%;
+    width: 20%;
+}
+#flan_img{
+    margin-top: 3%;
+    width: 20.1%;
+}

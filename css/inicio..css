@@ -1,0 +1,20 @@
+/*estilo imgs*/
+#fachada{
+    width: 94%;
+    height: 450px;
+    padding-top: 10%;
+    padding-left: 3%;
+    position: relative;
+    top: 60px;
+}
+#fachada_txt{
+    display: grid;
+    grid-template-rows: 1fr 0fr;
+    gap: 60px;
+}
+
+/*estilo texto*/
+#txt_inicio{
+    color: #d0816f;
+    text-align: center;
+}
