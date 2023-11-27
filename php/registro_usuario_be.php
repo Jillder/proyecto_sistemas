@@ -1,57 +1,89 @@
 <?php
 
-    include 'conexion_be.php';
+include 'conexion_be.php';
 
-    $nombre_completo = $_POST['nombre_completo'];
-    $correo = $_POST['correo'];
-    $usuario = $_POST['usuario'];
-    $contrasena = $_POST['contrasena'];
-    $contrasena = hash('sha512', $contrasena);
+abstract class Verificador {
+    protected $conexion;
 
-    $query = "INSERT INTO usuarios(nombre_completo, correo, usuario, contrasena) 
-            VALUES('$nombre_completo', '$correo', '$usuario', '$contrasena')";
+    public function __construct($conexion) {
+        $this->conexion = $conexion;
+    }
 
-    $verificar_correo = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo = '$correo' ");
-    if(mysqli_num_rows($verificar_correo) > 0){
-        echo '
+    abstract public function verificar($valor);
+}
+
+class VerificadorCorreo extends Verificador {
+    public function verificar($correo) {
+        $verificar_correo = $this->conexion->query("SELECT * FROM usuarios WHERE correo = '$correo'");
+        return $verificar_correo->num_rows > 0;
+    }
+}
+
+class VerificadorUsuario extends Verificador {
+    public function verificar($usuario) {
+        $verificar_usuario = $this->conexion->query("SELECT * FROM usuarios WHERE usuario = '$usuario'");
+        return $verificar_usuario->num_rows > 0;
+    }
+}
+
+class RegistroUsuario {
+    private $conexion;
+
+    public function __construct($conexion) {
+        $this->conexion = $conexion;
+    }
+
+    public function registrarUsuario($nombre_completo, $correo, $usuario, $contrasena) {
+        $contrasena = hash('sha512', $contrasena);
+
+        $verificadorCorreo = new VerificadorCorreo($this->conexion);
+        $verificadorUsuario = new VerificadorUsuario($this->conexion);
+
+        if ($verificadorCorreo->verificar($correo)) {
+            $this->mostrarAlerta("Este correo ya está registrado, intenta con otro diferente");
+            return false;
+        }
+
+        if ($verificadorUsuario->verificar($usuario)) {
+            $this->mostrarAlerta("Este usuario ya está registrado, intenta con otro diferente");
+            return false;
+        }
+
+        $query = "INSERT INTO usuarios(nombre_completo, correo, usuario, contrasena) 
+                VALUES('$nombre_completo', '$correo', '$usuario', '$contrasena')";
+
+        $ejecutar = $this->conexion->query($query);
+
+        if ($ejecutar) {
+            $this->mostrarAlerta("Usuario almacenado exitosamente", "../rutas/cuenta.php");
+            return true;
+        } else {
+            $this->mostrarAlerta("Ocurrió un error al registrarse.", "../rutas/login.php");
+            return false;
+        }
+    }
+
+    private function mostrarAlerta($mensaje, $urlRedireccion = null) {
+        echo "
             <script>
-                alert("Este correo ya está registrado, intenta con otro diferente");
-                window.location = "../rutas/login.php";
-            </script>
-        ';
-        exit();
+                alert('$mensaje');
+        ";
+
+        if ($urlRedireccion) {
+            header("location: $urlRedireccion");
+        }
+
+        echo "</script>";
     }
+}
 
-    $verificar_usuario = mysqli_query($conexion, "SELECT * FROM usuarios WHERE usuario = '$usuario' ");
-    if(mysqli_num_rows($verificar_usuario) > 0){
-        echo '
-            <script>
-                alert("Este usuario ya está registrado, intenta con otro diferente");
-                window.location = "../rutas/login.php";
-            </script>
-        ';
-        exit();
-    }
+$registroUsuario = new RegistroUsuario($conexion);
 
-    
+$nombre_completo = $_POST['nombre_completo'];
+$correo = $_POST['correo'];
+$usuario = $_POST['usuario'];
+$contrasena = $_POST['contrasena'];
 
-    $ejecutar = mysqli_query($conexion, $query);
+$registroUsuario->registrarUsuario($nombre_completo, $correo, $usuario, $contrasena);
 
-    if($ejecutar){
-        echo '
-        <script>
-            alert("Usuario almacenado exitosamente");
-            window.location = "../rutas/cuenta.php";
-        </script>
-        ';
-    }else{
-        echo '
-        <script>
-            alert("Ocurrio un error al registrarse.");
-            window.location = "../rutas/login.php";
-        </script>
-        ';
-    }
-
-    mysqli_close($conexion);
 ?>
