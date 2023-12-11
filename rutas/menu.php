@@ -3,8 +3,10 @@ session_start();
 
 if (isset($_SESSION['usuario'])){
     $btn = "Cuenta";
+    $flag = true;
 }else{
     $btn = "Login";
+    $Flag = false;
 }
 ?>
 
@@ -21,6 +23,12 @@ if (isset($_SESSION['usuario'])){
 </head>
 <body style="background-color: black;"></body>
 <body>
+    <script>
+        function mostrarDetalles(id) {
+            window.location.href = './detalles.php?id=' + id;
+        }
+    </script>
+
     <h2>
         <!-- botones-->
         <button id="la_cabrera" onclick="window.location.href = '../index.php';">La Cabrera</button>
@@ -34,6 +42,18 @@ if (isset($_SESSION['usuario'])){
     <div class="grid_container">
         <div id="titulo_menu">Nuestro Menú</div>
         <div id="entradas">Entradas</div>
+        <script>
+            <?php if ($flag): ?>
+                console.log("xd");
+                var button = document.createElement("button");
+                button.id = "carrito";
+                button.innerHTML = "Carrito";
+                button.onclick = function() {
+                    window.location.href = '../rutas/carrito.php';
+                };
+                document.body.appendChild(button);
+            <?php endif; ?>
+        </script>
     </div>
 
     <div class="img_container">
@@ -41,10 +61,12 @@ if (isset($_SESSION['usuario'])){
     </div>
 
         <!--imgs entradas-->
-        <img id="chori_criollo_img" src="../imgs/chori_criollo.jpg" alt="Chorizo criollo de rueda">
-        <img id="provoleta_img" src="../imgs/provoleta.jpg" alt="Provoleta">
-        <img id="morcilla_img" src="../imgs/morcilla.jpg" alt="Morcilla">
-        <img id="empanadas_img" src="../imgs/empanadas.jpg" alt="empanadas">
+    <div class = "entradas_container">
+        <img id="chori_criollo_img" src="../imgs/chori_criollo.jpg" alt="Chorizo criollo de rueda" onclick = "mostrarDetalles(1)">
+        <img id="provoleta_img" src="../imgs/provoleta.jpg" alt="Provoleta" onclick = "mostrarDetalles(2)">
+        <img id="morcilla_img" src="../imgs/morcilla.jpg" alt="Morcilla" onclick = "mostrarDetalles(3)">
+        <img id="empanadas_img" src="../imgs/empanadas.jpg" alt="empanadas" onclick = "mostrarDetalles(4)">
+    </div>
 
     <div id="nombres_entradas">
         <div class="nombres_e">
@@ -66,10 +88,12 @@ if (isset($_SESSION['usuario'])){
     <div id="guarniciones">Guarniciones y ensaladas</div>
 
         <!--imgs guarniciones-->
-    <img id="aguacate_img" src="../imgs/aguacate.jpg" alt="Ensalada de aguacate, palmitos y tomate">
-    <img id="caesar_img" src="../imgs/caesar.jpg" alt="Ensalada caesar">
-    <img id="caprese_img" src="../imgs/caprese.jpg" alt="Ensalada caprese">
-    <img id="rucula_img" src="../imgs/rucula.jpg" alt="Ensalada de rucula y queso parmesano">
+    <div class = "guarniciones_container">
+    <img id="aguacate_img" src="../imgs/aguacate.jpg" alt="Ensalada de aguacate, palmitos y tomate" onclick = "mostrarDetalles(5)">
+    <img id="caesar_img" src="../imgs/caesar.jpg" alt="Ensalada caesar" onclick = "mostrarDetalles(6)">
+    <img id="caprese_img" src="../imgs/caprese.jpg" alt="Ensalada caprese" onclick = "mostrarDetalles(7)">
+    <img id="rucula_img" src="../imgs/rucula.jpg" alt="Ensalada de rucula y queso parmesano" onclick = "mostrarDetalles(8)">
+    </div>
 
     <div id="nombres_guarniciones">
         <div class="nombres_g">
@@ -87,10 +111,12 @@ if (isset($_SESSION['usuario'])){
         <div class="clearfix"></div>
     </div>
 
-    <img id="mixta_img" src="../imgs/mixta.jpg" alt="Ensalada mixta">
-    <img id="huevos_plancha_img" src="../imgs/huevos_plancha.jpg" alt="Huevos a la plancha con morron asado">
-    <img id="papas_huevos_img" src="../imgs/papas_huevos.jpg" alt="Papas criollas con huevos revueltos">
-    <img id="papas_cebollas_img" src="../imgs/papas_cebollas.jpg">
+    <div class="guarniciones_container">
+    <img id="mixta_img" src="../imgs/mixta.jpg" alt="Ensalada mixta" onclick = "mostrarDetalles(9)">
+    <img id="huevos_plancha_img" src="../imgs/huevos_plancha.jpg" alt="Huevos a la plancha con morron asado" onclick = "mostrarDetalles(10)">
+    <img id="papas_huevos_img" src="../imgs/papas_huevos.jpg" alt="Papas criollas con huevos revueltos" onclick = "mostrarDetalles(11)">
+    <img id="papas_cebollas_img" src="../imgs/papas_cebollas.jpg" onclick = "mostrarDetalles(12)">
+    </div>
 
     <div id="nombres_guarniciones">
         <div class="nombres_g">
@@ -112,8 +138,10 @@ if (isset($_SESSION['usuario'])){
     <div id="pastas">Pastas caseras</div>
 
     <!--imgs pastas caseras-->
-    <img id="fussilli_img" src="../imgs/fussilli.jpg" alt="Fussilli caseros con oliva">
-    <img id="ravioles_img" src="../imgs/ravioles.jpg" alt="Ravioles de mozzarela y jamon">
+    <div class="pastas_container">
+    <img id="fussilli_img" src="../imgs/fussilli.jpg" alt="Fussilli caseros con oliva" onclick = "mostrarDetalles(13)">
+    <img id="ravioles_img" src="../imgs/ravioles.jpg" alt="Ravioles de mozzarela y jamon" onclick = "mostrarDetalles(14)">
+    </div>
 
     <div id="nombres_pastas">
         <div class="nombres_p">
@@ -129,10 +157,12 @@ if (isset($_SESSION['usuario'])){
     <div id="grillados">Grillados</div>
 
     <!--imgs grillados-->
-    <img id="bife_aged_img" src="../imgs/bife_aged.jpg" alt="Bife dry aged">
-    <img id="bife_chorizo_img" src="../imgs/bife_chorizo.jpg" alt="Bife de chorizo large">
-    <img id="asado_novillo_img" src="../imgs/asado_novillo.jpg" alt="Asado de novillo corte americano">
-    <img id="brochette_lomo_img" src="../imgs/brochette_lomo.jpg" alt="Brochete de lomo envuelta en panceta">
+    <div class="grillados_container">
+    <img id="bife_aged_img" src="../imgs/bife_aged.jpg" alt="Bife dry aged" onclick = "mostrarDetalles(15)">
+    <img id="bife_chorizo_img" src="../imgs/bife_chorizo.jpg" alt="Bife de chorizo large" onclick = "mostrarDetalles(16)">
+    <img id="asado_novillo_img" src="../imgs/asado_novillo.jpg" alt="Asado de novillo corte americano" onclick = "mostrarDetalles(17)">
+    <img id="brochette_lomo_img" src="../imgs/brochette_lomo.jpg" alt="Brochete de lomo envuelta en panceta" onclick = "mostrarDetalles(18)">
+    </div>
 
     <div id="nombres_grillados">
         <div class="nombres_gri">
@@ -149,11 +179,12 @@ if (isset($_SESSION['usuario'])){
         </div>
         <div class="clearfix"></div>
     </div>
-
-    <img id="lomo_marinada_img" src="../imgs/lomo_marinada.jpg" alt="Lomo con marinada de verduras">
-    <img id="ojo_bife_img" src="../imgs/ojo_bife.jpg" alt="Ojo de bife napolitano">
-    <img id="mollejas_img" src="../imgs/mollejas.jpg" alt="Mollejas grilladas">
-    <img id="entraña_img" src="../imgs/entraña.jpg" alt="Entraña">
+    <div class="grillados_container">
+    <img id="lomo_marinada_img" src="../imgs/lomo_marinada.jpg" alt="Lomo con marinada de verduras" onclick = "mostrarDetalles(19)">
+    <img id="ojo_bife_img" src="../imgs/ojo_bife.jpg" alt="Ojo de bife napolitano" onclick = "mostrarDetalles(20)">
+    <img id="mollejas_img" src="../imgs/mollejas.jpg" alt="Mollejas grilladas" onclick = "mostrarDetalles(21)">
+    <img id="entraña_img" src="../imgs/entraña.jpg" alt="Entraña" onclick = "mostrarDetalles(22)">
+    </div>
 
     <div id="nombres_grillados">
         <div class="nombres_gri">
@@ -171,10 +202,12 @@ if (isset($_SESSION['usuario'])){
         <div class="clearfix"></div>
     </div>
 
-    <img id="churrasquito_img" src="../imgs/churrasquito.jpg" alt="Churrasquito con panceta">
-    <img id="matambrito_img" src="../imgs/matambrito.jpg" alt="Matambrito de cerdo">
-    <img id="bondiola_img" src="../imgs/bondiola.jpg" alt="Bondiola de cerdo mechada">
-    <img id="pamplona_img" src="../imgs/pamplona.jpg" alt="Pamplona de pollo rellena con queso">  
+    <div class="grillados_container">
+    <img id="churrasquito_img" src="../imgs/churrasquito.jpg" alt="Churrasquito con panceta" onclick = "mostrarDetalles(23)">
+    <img id="matambrito_img" src="../imgs/matambrito.jpg" alt="Matambrito de cerdo" onclick = "mostrarDetalles(24)">
+    <img id="bondiola_img" src="../imgs/bondiola.jpg" alt="Bondiola de cerdo mechada" onclick = "mostrarDetalles(25)">
+    <img id="pamplona_img" src="../imgs/pamplona.jpg" alt="Pamplona de pollo rellena con queso" onclick = "mostrarDetalles(26)">  
+    </div>
     
     <div id="nombres_grillados">
         <div class="nombres_gri">
@@ -196,10 +229,13 @@ if (isset($_SESSION['usuario'])){
     <div id="postres">Postres</div>
 
     <!--imgs postres-->
-    <img id="helados_img" src="../imgs/helados.jpg" alt="Helados caseros">
-    <img id="variados_img" src="../imgs/variados.jpg" alt="Postres variados">
-    <img id="brulee_img" src="../imgs/brulee.jpg" alt="Creme brulee">
-    <img id="flan_img" src="../imgs/flan.jpg" alt="Flan casero">
+    <div class="postres_container">
+    <img id="helados_img" src="../imgs/helados.jpg" alt="Helados caseros" onclick = "mostrarDetalles(27)">
+    <img id="variados_img" src="../imgs/variados.jpg" alt="Postres variados" onclick = "mostrarDetalles(28)">
+    <img id="brulee_img" src="../imgs/brulee.jpg" alt="Creme brulee" onclick = "mostrarDetalles(29)">
+    <img id="flan_img" src="../imgs/flan.jpg" alt="Flan casero" onclick = "mostrarDetalles(30)">
+    </div>
+    
 
     <div id="nombres_postres">
         <div class="nombres_pos">

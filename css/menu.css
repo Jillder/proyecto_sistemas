@@ -4,6 +4,21 @@
     grid-gap: 20%;
 }
 
+#carrito{
+    background-color: gray;
+    color: antiquewhite;  
+    font-size: 250%;
+    padding: 0.6% 40px;
+    border-radius: 5px;
+    grid-column: 1 / span 2;
+    grid-row: 3;    
+    cursor: pointer;
+    border: none;
+    margin-left: 70%;
+    margin-top: 8%;
+    position: absolute;
+}
+
 #titulo_menu{
     color: white;
     font-size: 300%;
@@ -154,6 +169,11 @@
 
 
 /*imgs entradas*/
+
+.entradas_container{
+    cursor: pointer;
+}
+
 #chori_criollo_img{
     margin-left: 8%;
     margin-top: 5%;
@@ -174,6 +194,10 @@
 
 
 /*imgs guarniciones*/
+.guarniciones_container{
+    cursor: pointer;
+}
+
 #aguacate_img{
     margin-left: 8%;
     margin-top: 3%;
@@ -211,6 +235,10 @@
 
 
 /*imgs pastas*/
+.pastas_container{
+    cursor: pointer;
+}
+
 #fussilli_img{
     margin-left: 30%;
     margin-top: 3%;
@@ -223,6 +251,10 @@
 
 
 /*imgs grillados*/
+.grillados_container{
+    cursor: pointer;
+}
+
 #bife_aged_img{
     margin-left: 8%;
     margin-top: 3%;
@@ -276,6 +308,10 @@
 }
 
 /*imgs postres*/
+.postres_container{
+    cursor: pointer;
+}
+
 #helados_img{
     margin-left: 8%;
     margin-top: 3%;

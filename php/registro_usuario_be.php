@@ -40,12 +40,12 @@ class RegistroUsuario {
         $verificadorUsuario = new VerificadorUsuario($this->conexion);
 
         if ($verificadorCorreo->verificar($correo)) {
-            $this->mostrarAlerta("Este correo ya está registrado, intenta con otro diferente");
+            $this->mostrarAlerta("Este correo ya está registrado, intenta con otro diferente", "../rutas/login.php");
             return false;
         }
 
         if ($verificadorUsuario->verificar($usuario)) {
-            $this->mostrarAlerta("Este usuario ya está registrado, intenta con otro diferente");
+            $this->mostrarAlerta("Este usuario ya está registrado, intenta con otro diferente", "../rutas/login.php");
             return false;
         }
 
@@ -63,17 +63,14 @@ class RegistroUsuario {
         }
     }
 
-    private function mostrarAlerta($mensaje, $urlRedireccion = null) {
+    private function mostrarAlerta($mensaje, $urlRedireccion) {
         echo "
             <script>
                 alert('$mensaje');
+                window.location.replace('$urlRedireccion');
+            </script>
         ";
-
-        if ($urlRedireccion) {
-            header("location: $urlRedireccion");
-        }
-
-        echo "</script>";
+            exit;
     }
 }
 
